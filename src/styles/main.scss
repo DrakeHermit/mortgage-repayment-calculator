@@ -6,8 +6,7 @@
   padding: 0;
 }
 
-h1 {
-  font-size: 2rem;
-  color: #333;
-  background-color: v.$lime;
+body {
+  font-family: v.$plus-jakarta-sans;
+  padding: v.$p-400 v.$p-300;
 }

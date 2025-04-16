@@ -1,10 +1,11 @@
+import { MainPage } from './pages/MainPage'
 import './styles/main.scss'
 
 function App() {
   
   return (
     <>
-      <h1>Mortgage Repayment Calculator</h1>
+      <MainPage />
     </>
   )
 }

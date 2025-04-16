@@ -1,2 +1,31 @@
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url(../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans Italic';
+  src: url(../assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf);
+}
+
+// Colors
 $lime: rgb(216, 219, 47);
+$white: #ffffff;
+$red: #D73328;
 $slate-900: #133041;
+$slate-700: #4E6E7E;
+$slate-500: #6B94A8;
+$slate-300: #9ABED5;
+$slate-100: #E4F4FD;
+
+// Padding
+$p-500: 2.5rem;
+$p-400: 2rem;
+$p-300: 1.5rem;
+$p-200: 1rem;
+$p-150: 0.75rem;
+$p-100: 0.5rem;
+
+// Typography
+$plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+$plus-jakarta-sans-italic: 'Plus Jakarta Sans Italic', sans-serif;

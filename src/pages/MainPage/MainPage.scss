@@ -1,5 +1,9 @@
 @use '../../styles/variables.scss' as v;
 
+.main__content {
+  padding: v.$p-400 v.$p-300;
+}
+
 .clear__form {
   border: none;
   outline: none;

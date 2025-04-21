@@ -8,7 +8,7 @@
 
   .form__label {
     color: v.$slate-700;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.75rem;
   }
 
   .form__field {
@@ -24,6 +24,7 @@
     border: 1px solid v.$slate-500;
     border-radius: 4px;
     padding: 0.8rem 1rem;
+    margin-bottom: 0.75rem;
 
     .form__radio-label {
       color: v.$slate-900;
@@ -32,6 +33,10 @@
       margin-left: 1rem;
     }
   }  
+
+  fieldset {
+    border: none;
+  }
 }
 
 .form__submit {
@@ -48,7 +53,7 @@
     height: 1.5rem;
   }
 
-  input[type='button'] {
+  input[type='submit'] {
     background-color: inherit;
     color: v.$slate-900;
     margin-top: 3px ;

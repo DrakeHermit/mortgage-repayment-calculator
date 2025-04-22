@@ -28,10 +28,10 @@ export const Form = () => {
           </div>
         </fieldset>
       </div>
-      <div className="form__submit">
-        <img src="/images/icon-calculator.svg" alt="" />
-        <input type="submit" value="Calculate Repayments" />
-      </div>
+        <button className='form__submit' type="submit">
+          <img src="/images/icon-calculator.svg" alt="" />
+          Calculate Repayments
+        </button>
     </form>
   )
 }

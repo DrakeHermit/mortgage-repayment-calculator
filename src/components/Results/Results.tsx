@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 
 export const Results = () => {
-  const [results, setResults] = useState(false)
+  const [results, setResults] = useState(true)
 
   return (
     <section className='results'>

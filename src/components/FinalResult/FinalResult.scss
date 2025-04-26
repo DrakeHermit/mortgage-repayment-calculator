@@ -1,0 +1,58 @@
+@use "../../styles/variables.scss" as v;
+
+.result__header {
+  color: v.$white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.results .result__description {
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.results .result__container {
+  background-color: rgba(#000000, 0.25);
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+
+  p {
+    text-align: left;
+  }
+
+  .color__primary {
+    color: v.$lime;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .color__white {
+    color: v.$white;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  hr {
+    margin: 1rem 0;
+    border: 1px solid rgba(v.$slate-300, 0.25);
+  }
+
+  h4 {
+    color: v.$slate-300;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+}
+
+.results .result__container::before {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  left: 0;
+  top: -2px; 
+  background-color: v.$lime;
+}

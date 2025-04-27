@@ -1,14 +1,13 @@
+import { useFormContext } from '../../hooks/useFormContext'
 import { FinalResult } from '../FinalResult/FinalResult'
 import './Results.scss'
-import { useState } from 'react'
-
 
 export const Results = () => {
-  const [results, setResults] = useState(true)
-
+  const { formData } = useFormContext()
+  
   return (
     <section className='results'>
-      {results ? (<FinalResult />) :
+      {formData.isSubmitted ? (<FinalResult />) :
         (
           <>
             <img src = "/images/illustration-empty.svg" alt = "" />

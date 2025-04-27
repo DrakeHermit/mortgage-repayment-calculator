@@ -1,0 +1,27 @@
+@use '../../styles/variables.scss' as v;
+
+.label__group .input__label {
+  position: absolute;
+  top: 1px;
+  height: 97%;
+}
+
+.input__label {
+  background-color: v.$slate-100;
+  padding: 12px 1rem;
+  color: v.$slate-700;
+  font-size: 1.125rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.input__label--right {
+  border-radius: 0 5px 5px 0;
+  right: 1px;
+}
+
+.input__label--left {
+  border-radius: 5px 0 0 5px;
+  left: 1px;
+}

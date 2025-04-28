@@ -26,20 +26,18 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = e.target;
-    if (type === "radio") {
-      setFormData((prevData) => ({ ...prevData, [name]: value }));
-    } else {
+    const { name, value } = e.target;
       setFormData((prevData) => ({
       ...prevData,
-        [name]: name === "mortgageAmount" || name === "mortgageTerm" || name === "interestRate" || name === "mortgage-type" ? value : prevData.mortgageType,
+        [name]: value,
     }));
-    }
+    
   }
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setFormData((prevData) => ({ ...prevData, isSubmitted: true }));
+    console.log(formData)
   }
 
   const value: FormContextType = { formData, handleInputChange, handleFormSubmit };

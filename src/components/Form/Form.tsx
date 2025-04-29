@@ -11,7 +11,7 @@ export const Form = () => {
         <label htmlFor="mortgage-amount" className='form__label'>Mortgage Amount</label>
         <div className="label__group">
           <InputLabel label={ '$' } position='left' />
-          <input type="number" name="mortgageAmount" value={formData.mortgageAmount} onChange={(e) => handleInputChange(e)} id="mortgage-amount" className='form__field' />
+          <input type="number" name="mortgageAmount" value={formData.mortgageAmount} onChange={(e) => handleInputChange(e)} id="mortgage-amount" className='form__field error' />
         </div>
       </div>
       <div className="form__group">

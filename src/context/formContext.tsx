@@ -1,4 +1,5 @@
 import { createContext, useState, ReactNode } from "react";
+import { calculateRepayments } from "../utils/calculateRepayments";
 
 interface FormData {
   mortgageAmount: string;
@@ -37,7 +38,9 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setFormData((prevData) => ({ ...prevData, isSubmitted: true }));
-    console.log(formData)
+    calculateRepayments(
+      parseFloat(formData.mortgageAmount), parseFloat(formData.interestRate), parseInt(formData.mortgageTerm))
+    
   }
 
   const value: FormContextType = { formData, handleInputChange, handleFormSubmit };

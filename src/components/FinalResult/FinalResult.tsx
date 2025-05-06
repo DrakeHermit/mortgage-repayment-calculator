@@ -1,6 +1,11 @@
 import './FinalResult.scss'
 
-export const FinalResult = () => {
+interface FinalResultProps {
+  calculatedRepayments: number
+}
+
+export const FinalResult = ({calculatedRepayments}: FinalResultProps) => {
+  
   return (
     <section>
       <h3 className='result__header'>Your results</h3>
@@ -8,7 +13,7 @@ export const FinalResult = () => {
         <div className="green-accent"></div>
       <div className='result__container'>
         <h4>Your monthly repayments</h4>
-        <p className='color__primary'>£1,000</p>
+        <p className='color__primary'>£{calculatedRepayments.toFixed(2)}</p>
         <hr />
         <h4>Total you'll repay over the term</h4>
         <p className='color__white'>£1,500</p>

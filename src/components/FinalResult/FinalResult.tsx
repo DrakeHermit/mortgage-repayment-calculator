@@ -2,9 +2,10 @@ import './FinalResult.scss'
 
 interface FinalResultProps {
   calculatedRepayments: number
+  totalRepayment: number
 }
 
-export const FinalResult = ({calculatedRepayments}: FinalResultProps) => {
+export const FinalResult = ({calculatedRepayments, totalRepayment}: FinalResultProps) => {
   
   return (
     <section>
@@ -13,10 +14,20 @@ export const FinalResult = ({calculatedRepayments}: FinalResultProps) => {
         <div className="green-accent"></div>
       <div className='result__container'>
         <h4>Your monthly repayments</h4>
-        <p className='color__primary'>£{calculatedRepayments.toFixed(2)}</p>
+        <p className='color__primary'>{calculatedRepayments.toLocaleString('en-GB', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+          currency: 'EUR',
+          style: 'currency',
+        })}</p>
         <hr />
         <h4>Total you'll repay over the term</h4>
-        <p className='color__white'>£1,500</p>
+        <p className='color__white'>{totalRepayment.toLocaleString('en-GB', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+          currency: 'EUR',
+          style: 'currency',
+        })}</p>
       </div>
     </section>
   )

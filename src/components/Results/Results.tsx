@@ -5,12 +5,12 @@ import './Results.scss'
 
 export const Results = () => {
   const { formData } = useFormContext()
-  const calculatedRepayments = calculateRepayments(
+  const {monthlyPayment, totalRepayment} = calculateRepayments(
     parseFloat(formData.mortgageAmount), parseFloat(formData.interestRate), parseInt(formData.mortgageTerm))
   
   return (
     <section className='results'>
-      {formData.isSubmitted ? (<FinalResult calculatedRepayments={calculatedRepayments} />) :
+      {formData.isSubmitted ? (<FinalResult calculatedRepayments={monthlyPayment} totalRepayment={totalRepayment} />) :
         (
           <>
             <img src = "/images/illustration-empty.svg" alt = "" />

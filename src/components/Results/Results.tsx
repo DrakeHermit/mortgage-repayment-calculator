@@ -1,16 +1,13 @@
 import { useFormContext } from '../../hooks/useFormContext'
-import { calculateRepayments } from '../../utils/calculateRepayments'
 import { FinalResult } from '../FinalResult/FinalResult'
 import './Results.scss'
 
 export const Results = () => {
   const { formData } = useFormContext()
-  const {monthlyPayment, totalRepayment} = calculateRepayments(
-    parseFloat(formData.mortgageAmount), parseFloat(formData.interestRate), parseInt(formData.mortgageTerm))
   
   return (
     <section className='results'>
-      {formData.isSubmitted ? (<FinalResult calculatedRepayments={monthlyPayment} totalRepayment={totalRepayment} />) :
+      {formData.isSubmitted ? (<FinalResult />) :
         (
           <>
             <img src = "/images/illustration-empty.svg" alt = "" />

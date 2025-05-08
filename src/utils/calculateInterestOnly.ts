@@ -1,6 +1,6 @@
 interface InterestOnlyDetails {
-  monthlyPayment: Number,
-  totalRepaid: Number
+  monthlyPayment: number,
+  totalRepaid: number
 }
 
 export const calculateInterestOnly = (principal: number, rate: number, termYears: number): InterestOnlyDetails => {

@@ -13,6 +13,7 @@ interface FormContextType {
   formData: FormData;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleClearForm: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType);
@@ -40,10 +41,19 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     setFormData((prevData) => ({ ...prevData, isSubmitted: true }));
     calculateRepayments(
       parseFloat(formData.mortgageAmount), parseFloat(formData.interestRate), parseInt(formData.mortgageTerm))
-    
   }
 
-  const value: FormContextType = { formData, handleInputChange, handleFormSubmit };
+  const handleClearForm = () => {
+    setFormData({
+      mortgageAmount: '',
+      mortgageTerm: '',
+      interestRate: '',
+      mortgageType: 'repayment',
+      isSubmitted: false,
+    });
+  }
+
+  const value: FormContextType = { formData, handleInputChange, handleFormSubmit, handleClearForm };
 
   return (
     <FormContext.Provider value={value}>

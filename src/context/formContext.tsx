@@ -7,6 +7,11 @@ interface FormData {
   interestRate: string;
   mortgageType: string;
   isSubmitted?: boolean;
+  errors?: {
+    mortgageAmount?: string;
+    mortgageTerm?: string;
+    interestRate?: string;
+  };
 }
 
 interface FormContextType {
@@ -25,6 +30,11 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     interestRate: '',
     mortgageType: 'repayment',
     isSubmitted: false,
+    errors: {
+      mortgageAmount: '',
+      mortgageTerm: '',
+      interestRate: '', 
+    }
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,9 +48,16 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setFormData((prevData) => ({ ...prevData, isSubmitted: true }));
+
+    const isValid = validateForm();
+    if (isValid) {
+      setFormData((prevData) => ({ ...prevData, isSubmitted: true }));
     calculateRepayments(
       parseFloat(formData.mortgageAmount), parseFloat(formData.interestRate), parseInt(formData.mortgageTerm))
+    } else {
+      setFormData((prevData) => ({ ...prevData, isSubmitted: false }));
+
+    }
   }
 
   const handleClearForm = () => {
@@ -51,6 +68,35 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       mortgageType: 'repayment',
       isSubmitted: false,
     });
+  }
+
+  const validateForm = () => {
+    const errors: FormData['errors'] = {};
+
+    if (!formData.mortgageAmount) {
+      errors.mortgageAmount = 'Mortgage amount is required';
+    } else if (Number(formData.mortgageAmount) <= 0) {
+      errors.mortgageAmount = 'Mortgage amount cannot be zero or negative';
+    }
+
+    if (!formData.mortgageTerm) {
+      errors.mortgageTerm = 'Mortgage term is required';
+    } else if (Number(formData.mortgageTerm) <= 0) {
+      errors.mortgageTerm = 'Mortgage term cannot be zero or negative';
+    }
+
+    if (!formData.interestRate) {
+      errors.interestRate = 'Interest rate is required';
+    } else if (Number(formData.interestRate) <= 0) {
+      errors.interestRate = 'Interest rate cannot be zero or negative';
+    }
+    
+    setFormData((prevData) => ({
+      ...prevData,
+      errors: errors
+    }));
+
+    return !Object.values(errors).some((error) => error);
   }
 
   const value: FormContextType = { formData, handleInputChange, handleFormSubmit, handleClearForm };

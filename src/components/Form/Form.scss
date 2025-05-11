@@ -8,7 +8,11 @@
 
   .form__label {
     color: v.$slate-700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .mb-1 {
+    margin-bottom: 0.7rem;
   }
 
   .form__field {
@@ -20,6 +24,11 @@
     font-weight: bold;
     padding-left: 3rem;
     width: 100%;
+  }
+
+  .error__message {
+    color: v.$red;
+    font-size: 0.875rem;
   }
 
   .form__field.error {

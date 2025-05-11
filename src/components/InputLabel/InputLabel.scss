@@ -2,8 +2,8 @@
 
 .label__group .input__label {
   position: absolute;
-  top: 1px;
-  height: 97%;
+  top: 0;
+  height: 100%;
 }
 
 .input__label {
@@ -14,14 +14,35 @@
   font-weight: bold;
   display: flex;
   align-items: center;
+  border-top: 1px solid v.$slate-500;
+  border-bottom: 1px solid v.$slate-500;
 }
 
 .input__label--right {
-  border-radius: 0 5px 5px 0;
-  right: 1px;
+  border-radius: 0 4px 4px 0;
+  border-right: 1px solid v.$slate-500;
+  right: 0;
+}
+
+.input__label--right.error {
+  border-top: 1px solid v.$red;
+  border-bottom: 1px solid v.$red;
+  border-right: 1px solid v.$red;
+}
+
+.input__label--left.error {
+  border-top: 1px solid v.$red;
+  border-bottom: 1px solid v.$red;
+  border-left: 1px solid v.$red;
+}
+
+.input__label.error {
+  background-color: v.$red;
+  color: v.$white;
 }
 
 .input__label--left {
-  border-radius: 5px 0 0 5px;
-  left: 1px;
+  border-radius: 4px 0 0 4px;
+  left: 0;
+  border-left: 1px solid v.$slate-500;
 }

@@ -11,6 +11,7 @@ interface FormData {
     mortgageAmount?: string;
     mortgageTerm?: string;
     interestRate?: string;
+    mortgageType?: string;
   };
 }
 
@@ -28,12 +29,13 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     mortgageAmount: '',
     mortgageTerm: '',
     interestRate: '',
-    mortgageType: 'repayment',
+    mortgageType: '',
     isSubmitted: false,
     errors: {
       mortgageAmount: '',
       mortgageTerm: '',
-      interestRate: '', 
+      interestRate: '',
+      mortgageType: '',
     }
   });
 
@@ -65,7 +67,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       mortgageAmount: '',
       mortgageTerm: '',
       interestRate: '',
-      mortgageType: 'repayment',
+      mortgageType: 'Boolean',
       isSubmitted: false,
     });
   }
@@ -89,6 +91,10 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       errors.interestRate = 'Interest rate is required';
     } else if (Number(formData.interestRate) <= 0) {
       errors.interestRate = 'Interest rate cannot be zero or negative';
+    }
+
+    if (!formData.mortgageType) {
+      errors.mortgageType = 'Mortgage type is required';
     }
     
     setFormData((prevData) => ({

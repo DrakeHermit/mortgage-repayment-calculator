@@ -35,13 +35,14 @@ export const Form = () => {
         <fieldset>
           <legend className='form__label mb-1'>Mortgage Type</legend>
           <div className="form__radio">
-            <input type="radio" id="repayment" checked={formData.mortgageType === "repayment"} value='repayment' onChange={(e) => handleInputChange(e)} name="mortgageType" className='form__radio-input' />
+            <input type="radio" id="repayment" checked={formData.mortgageType === 'repayment'} value='repayment' onChange={(e) => handleInputChange(e)} name="mortgageType" className='form__radio-input' />
             <label htmlFor="repayment" className='form__radio-label'>Repayment</label>
           </div>
           <div className="form__radio">
             <input type="radio" id="interest-only" checked={formData.mortgageType === "interest-only"} value="interest-only" onChange={(e) => handleInputChange(e)} name="mortgageType" className='form__radio-input' />
             <label htmlFor="interest-only" className='form__radio-label'>Interest Only</label>
           </div>
+          {formData.errors?.mortgageType && <p className='error__message'>{ formData.errors.mortgageType }</p>}
         </fieldset>
       </div>
         <button className='form__submit' type="submit">

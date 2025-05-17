@@ -22,8 +22,20 @@
     color: v.$slate-900;
     font-size: 1.125rem;
     font-weight: bold;
-    padding-left: 3rem;
     width: 100%;
+
+    &:focus{
+      border: 2px solid v.$lime;
+      outline: none;
+    }
+  }
+
+  .p-left-4 {
+    padding-left: 3.5rem;
+  }
+
+  .p-right-3 {
+    padding-left: 1.5rem;
   }
 
   .error__message {
@@ -40,6 +52,8 @@
     border-radius: 4px;
     padding: 0.8rem 1rem;
     margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
 
     .form__radio-label {
       color: v.$slate-900;
@@ -52,6 +66,40 @@
   fieldset {
     border: none;
   }
+}
+
+.form__radio-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid v.$slate-900;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  
+  &:checked {
+    background-color: transparent;
+    border: 2px solid v.$lime;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: v.$lime;
+    }
+  }
+}
+
+.form__radio.checked {
+  background-color: rgba(v.$lime, 0.2 );
+  border: 1px solid v.$lime;
 }
 
 .form__submit {

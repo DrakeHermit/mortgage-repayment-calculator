@@ -15,21 +15,23 @@ export const Form = () => {
         </div>
           {formData.errors?.mortgageAmount && <p className='error__message'>{formData.errors.mortgageAmount}</p>}
       </div>
-      <div className="form__group">
-        <label htmlFor="mortgage-term" className='form__label'>Mortgage Term</label>
-        <div className="label__group">
-          <InputLabel label={ 'years' } position='right' error={Boolean(formData.errors?.mortgageTerm)} />
-          <input type="number" name="mortgageTerm" value={formData.mortgageTerm} onChange={(e) => handleInputChange(e)} id="mortgage-term" className={`form__field p-right-3 ${formData.errors?.mortgageTerm && 'error'}`} />
+      <div className="md">
+        <div className="form__group">
+          <label htmlFor="mortgage-term" className='form__label'>Mortgage Term</label>
+          <div className="label__group">
+            <InputLabel label={ 'years' } position='right' error={Boolean(formData.errors?.mortgageTerm)} />
+            <input type="number" name="mortgageTerm" value={formData.mortgageTerm} onChange={(e) => handleInputChange(e)} id="mortgage-term" className={`form__field p-right-3 ${formData.errors?.mortgageTerm && 'error'}`} />
+          </div>
+          {formData.errors?.mortgageTerm && <p className='error__message'>{ formData.errors.mortgageTerm }</p>}
         </div>
-        {formData.errors?.mortgageTerm && <p className='error__message'>{ formData.errors.mortgageTerm }</p>}
-      </div>
-      <div className="form__group">
-        <label htmlFor="interest-rate" className='form__label'>Interest Rate</label>
-        <div className="label__group">
-          <InputLabel label={ '%' } position='right' error={Boolean(formData.errors?.interestRate)} />
-          <input type="number" name="interestRate" value={formData.interestRate} onChange={(e) => handleInputChange(e)} id="interest-rate" className={`form__field p-right-3 ${formData.errors?.interestRate && 'error'}`} />
+        <div className="form__group">
+          <label htmlFor="interest-rate" className='form__label'>Interest Rate</label>
+          <div className="label__group">
+            <InputLabel label={ '%' } position='right' error={Boolean(formData.errors?.interestRate)} />
+            <input type="number" name="interestRate" value={formData.interestRate} onChange={(e) => handleInputChange(e)} id="interest-rate" className={`form__field p-right-3 ${formData.errors?.interestRate && 'error'}`} />
+          </div>
+          {formData.errors?.interestRate && <p className='error__message'>{ formData.errors.interestRate }</p>}
         </div>
-        {formData.errors?.interestRate && <p className='error__message'>{ formData.errors.interestRate }</p>}
       </div>
       <div className={"form__group"}>
         <fieldset>

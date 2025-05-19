@@ -122,12 +122,35 @@
     height: 1.5rem;
   }
 
-  &:hover {
-    background-color: rgba(v.$lime,  0.5);
-    transition: all 0.3s ease-in-out; 
+  @media (hover: hover){
+    &:hover {
+      background-color: rgba(v.$lime,  0.5);
+      transition: all 0.3s ease-in-out; 
+    }
   }
 }
 
 .label__group {
   position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .md {
+    display: flex;
+    justify-content: space-between;
+
+    .form__group{
+      width: 48%;
+    }
+  }
+  .form__submit {
+    padding: 1rem;
+    width: 48%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .form__submit {
+    width: 70%;
+  }
 }

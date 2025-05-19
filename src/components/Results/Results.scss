@@ -1,28 +1,57 @@
 @use '../../styles/variables' as v;
 
 .results {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
   background-color: v.$slate-900;
   padding: v.$p-400 v.$p-300;
-
-  img {
-    width: 192px;
-    height: 192px;
-  }
-
-  .results__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: v.$white;
-  }
-
-  p {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    color: v.$slate-300;
+    
+    img {
+      width: 192px;
+      height: 192px;
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: v.$white;
+    }
+    
+    p {
+      color: v.$slate-300;
+      max-width: 500px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .results {
+    border-radius: 0 0 1.5rem 1.5rem;
+    padding: v.$p-500;
+    min-height: 400px; 
+    
+    .empty-state {
+      height: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .results {
+    border-radius: 0 1.5rem 1.5rem 4rem;
+    padding: v.$p-500;
   }
 }

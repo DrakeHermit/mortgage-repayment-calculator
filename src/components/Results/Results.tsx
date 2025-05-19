@@ -7,15 +7,15 @@ export const Results = () => {
   
   return (
     <section className='results'>
-      {formData.isSubmitted ? (<FinalResult />) :
-        (
-          <>
-            <img src = "/images/illustration-empty.svg" alt = "" />
-            <h2 className='results__title'>Results shown here</h2>
-            <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>)
-          </>
-        )
-}
+      {formData.isSubmitted ? (
+        <FinalResult />
+      ) : (
+        <div className='empty-state'>
+          <img src="/images/illustration-empty.svg" alt="" />
+          <h2>Results shown here</h2>
+          <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
+        </div>
+      )}
     </section>
   )
 }

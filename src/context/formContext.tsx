@@ -67,7 +67,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       mortgageAmount: '',
       mortgageTerm: '',
       interestRate: '',
-      mortgageType: 'Boolean',
+      mortgageType: '',
       isSubmitted: false,
     });
   }

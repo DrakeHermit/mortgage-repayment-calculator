@@ -8,10 +8,12 @@ export const MainPage = () => {
   const { handleClearForm } = useFormContext();
 
   return (
-    <main>
+    <main className="main">
       <div className="main__content">
-        <MainHeading />
-        <button className="clear__form" onClick={handleClearForm}>Clear All</button>
+        <div className="title__section">
+          <MainHeading />
+          <button className="clear__form" onClick={handleClearForm}>Clear All</button>
+        </div>
         <Form />
       </div>
       <Results />

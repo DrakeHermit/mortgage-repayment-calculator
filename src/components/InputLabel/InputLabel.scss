@@ -41,6 +41,12 @@
   color: v.$white;
 }
 
+.input__label.active {
+  background-color: v.$lime;
+  color: v.$slate-900;
+  border: none;
+}
+
 .input__label--left {
   border-radius: 4px 0 0 4px;
   left: 0;

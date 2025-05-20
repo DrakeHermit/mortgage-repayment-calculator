@@ -1,17 +1,19 @@
 import './Form.scss'
 import { useFormContext } from '../../hooks/useFormContext'
 import { InputLabel } from '../InputLabel/InputLabel';
+import { useState } from 'react';
 
 export const Form = () => {
   const { formData, handleInputChange, handleFormSubmit } = useFormContext();
+  const [ active, setActive ] = useState('');
 
   return (
     <form onSubmit={(e) => handleFormSubmit(e)} className='form'> 
       <div className="form__group">
         <label htmlFor="mortgage-amount" className='form__label'>Mortgage Amount</label>
         <div className="label__group">
-          <InputLabel label={ '€' } position='left' error={Boolean(formData.errors?.mortgageAmount)} />
-          <input type="number" name="mortgageAmount" value={formData.mortgageAmount} onChange={(e) => handleInputChange(e)} id="mortgage-amount" className={`form__field p-left-4 ${formData.errors?.mortgageAmount && 'error'}`} />
+          <InputLabel label={ '€' } position='left' error={Boolean(formData.errors?.mortgageAmount)} isActive={active === 'mortgageAmount'} />
+          <input type="number" name="mortgageAmount" value={formData.mortgageAmount} onChange={(e) => handleInputChange(e)} onFocus={() => setActive('mortgageAmount')} onBlur={() => setActive('')} id="mortgage-amount" className={`form__field p-left-4 ${formData.errors?.mortgageAmount && 'error'}`} />
         </div>
           {formData.errors?.mortgageAmount && <p className='error__message'>{formData.errors.mortgageAmount}</p>}
       </div>
@@ -19,16 +21,16 @@ export const Form = () => {
         <div className="form__group">
           <label htmlFor="mortgage-term" className='form__label'>Mortgage Term</label>
           <div className="label__group">
-            <InputLabel label={ 'years' } position='right' error={Boolean(formData.errors?.mortgageTerm)} />
-            <input type="number" name="mortgageTerm" value={formData.mortgageTerm} onChange={(e) => handleInputChange(e)} id="mortgage-term" className={`form__field p-right-3 ${formData.errors?.mortgageTerm && 'error'}`} />
+            <InputLabel label={ 'years' } position='right' error={Boolean(formData.errors?.mortgageTerm)} isActive={active === 'mortgageTerm'} />
+            <input type="number" name="mortgageTerm" value={formData.mortgageTerm} onChange={(e) => handleInputChange(e)} onFocus={() => setActive('mortgageTerm')} onBlur={() => setActive('')} id="mortgage-term" className={`form__field p-right-3 ${formData.errors?.mortgageTerm && 'error'}`} />
           </div>
           {formData.errors?.mortgageTerm && <p className='error__message'>{ formData.errors.mortgageTerm }</p>}
         </div>
         <div className="form__group">
           <label htmlFor="interest-rate" className='form__label'>Interest Rate</label>
           <div className="label__group">
-            <InputLabel label={ '%' } position='right' error={Boolean(formData.errors?.interestRate)} />
-            <input type="number" name="interestRate" value={formData.interestRate} onChange={(e) => handleInputChange(e)} id="interest-rate" className={`form__field p-right-3 ${formData.errors?.interestRate && 'error'}`} />
+            <InputLabel label={ '%' } position='right' error={Boolean(formData.errors?.interestRate)} isActive={active === 'interestRate'} />
+            <input type="number" name="interestRate" value={formData.interestRate} onChange={(e) => handleInputChange(e)} onFocus={() => setActive('interestRate')} onBlur={() => setActive('')} id="interest-rate" className={`form__field p-right-3 ${formData.errors?.interestRate && 'error'}`} />
           </div>
           {formData.errors?.interestRate && <p className='error__message'>{ formData.errors.interestRate }</p>}
         </div>

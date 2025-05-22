@@ -9,6 +9,7 @@
   .form__label {
     color: v.$slate-700;
     margin-bottom: 0.1rem;
+    cursor: pointer;
   }
 
   .mb-1 {
@@ -60,6 +61,7 @@
       font-weight: bold;
       font-size: 18px;
       margin-left: 1rem;
+      cursor: pointer;
     }
   }  
 
@@ -79,7 +81,7 @@
   position: relative;
   outline: none;
   
-  &:checked {
+  &:checked, &.checked {
     background-color: transparent;
     border: 2px solid v.$lime;
     

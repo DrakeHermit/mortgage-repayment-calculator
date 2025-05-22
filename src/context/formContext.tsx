@@ -17,6 +17,9 @@ interface FormData {
 
 interface FormContextType {
   formData: FormData;
+  focusedInput: string;
+  setFocusState: (inputName: string) => void;
+  handleInputBlur: () => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleClearForm: (e: React.MouseEvent<HTMLElement>) => void;
@@ -38,10 +41,12 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       mortgageType: '',
     }
   });
+  const [focusedInput, setFocusedInput] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-      setFormData((prevData) => ({
+    
+    setFormData((prevData) => ({
       ...prevData,
         [name]: value,
     }));
@@ -105,7 +110,23 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     return !Object.values(errors).some((error) => error);
   }
 
-  const value: FormContextType = { formData, handleInputChange, handleFormSubmit, handleClearForm };
+  const setFocusState = (inputName: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      errors: {
+        ...prevData.errors,
+        [inputName]: undefined
+      }
+    }))
+
+    setFocusedInput(inputName);
+  }
+  
+  const handleInputBlur = () => {
+    setFocusedInput('')
+  }
+
+  const value: FormContextType = { formData, handleInputChange, handleFormSubmit, handleClearForm, focusedInput, setFocusState, handleInputBlur };
 
   return (
     <FormContext.Provider value={value}>

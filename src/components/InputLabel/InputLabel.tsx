@@ -9,6 +9,6 @@ interface InputLabelProps {
 
 export const InputLabel = ({label, position = 'left', error, isActive}: InputLabelProps) => {
   return (
-    <div className={`input__label input__label--${position} ${isActive && 'active'} ${error && 'error'}` }>{label}</div>
+    <div className={`input__label input__label--${position} ${isActive && !error ? 'active' : ''} ${error && 'error'}` }>{label}</div>
   )
 }

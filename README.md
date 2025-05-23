@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://drakehermit-mortgage-calculator.netlify.app/)
-- Live Site URL: [Live Site](https://your-live-site-url.com)
+- Live Site URL: [Live Site](https://drakehermit-mortgage-calculator.netlify.app/)
 
 ## My process
 

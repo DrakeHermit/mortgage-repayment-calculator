@@ -37,7 +37,7 @@ export const Form = () => {
         <fieldset>
           <legend className='form__label mb-1'>Mortgage Type</legend>
           <div className={`form__radio ${formData.mortgageType === 'repayment' ? 'checked' : ''} ${focusedInput === 'mortgageType' ? 'focused' : ''}`}>
-            <input type="radio" id="repayment" checked={formData.mortgageType === 'repayment'} value='repayment' onBlur={() => handleInputBlur()} onFocus={() => setFocusState('mortgageType')} onChange={(e) => handleInputChange(e)} name="mortgageType" className='form__radio-input' />
+            <input type="radio" id="repayment" checked={formData.mortgageType === 'repayment'} value='repayment' onBlur={() => handleInputBlur()} onFocus={() => setFocusState('mortgageType')} onChange={(e) => handleInputChange(e)} name="mortgageType" className='form__radio-input' tabIndex={0} />
             <label htmlFor="repayment" className='form__radio-label'>Repayment</label>
           </div>
           <div className={`form__radio ${formData.mortgageType === 'interest-only' ? 'checked' : ''} ${focusedInput === 'mortgageType' ? 'focused' : ''}`}>

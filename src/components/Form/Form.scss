@@ -104,6 +104,10 @@
   border: 1px solid v.$lime;
 }
 
+.form__radio.focused {
+  border: 1px solid v.$lime;
+}
+
 .form__submit {
   display: flex;
   align-items: center;
